@@ -1,18 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'cimg/python:3.11.4'
-        }
-    }
-    environment {
-        WORKING_DIRECTORY = '~/repo'
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+    agent any
         stage('Build') {
             steps {
                 script {
@@ -38,4 +25,4 @@ pipeline {
             }
         }
     }
-}
+
